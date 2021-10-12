@@ -1,12 +1,19 @@
 import { l } from "../../helpers/languageTools";
 import { changeParameter, newParameters } from "../../helpers/urlTools";
+import { signInCode } from "./signInCode";
 
-export function signIn(lang: string, queryString: string, urlParams: URLSearchParams): JSX.Element {
+type SignIn = { 
+    lang: string; 
+    queryString: string; 
+    urlParams: URLSearchParams; 
+    backendUrl: string; 
+}
+
+export function signIn({ lang, queryString, urlParams, backendUrl }: SignIn): JSX.Element {
     return (
         <div key="signinPage" className="Ordinary-text"
             style={{
                 textAlign: `center`
-
             }}>
 
             <label>
@@ -49,26 +56,14 @@ export function signIn(lang: string, queryString: string, urlParams: URLSearchPa
             <br /><br />
 
             <button key="signinButton" className="Lang-button"
-                onClick={() => {
-                    const email = (document.getElementById("signinInput1") as HTMLInputElement).value;
-                    const id = (document.getElementById("signinInput2") as HTMLInputElement).value;
-                    const queryStringInner = changeParameter({
-                        queryString,
-                        urlParams,
-                        param: 'serv',
-                        newValue: 'menu'
-
-                    });
-                    localStorage.setItem('email', email);
-                    localStorage.setItem('id', id);
-
-                    newParameters(changeParameter({
-                        queryString: queryStringInner,
-                        urlParams,
-                        param: 'page',
-                        newValue: 'welcome'
-                    }));
-                }}>
+                onClick={() => signInCode({
+                     email: (document.getElementById("signinInput1") as HTMLInputElement).value,
+                     id: (document.getElementById("signinInput2") as HTMLInputElement).value,
+                     lang,
+                     queryString, 
+                     urlParams,
+                     backendUrl
+                })}>
                 {l({
                     "en": "Sign in",
                     "fr": "S'identifier"
@@ -101,3 +96,4 @@ export function signIn(lang: string, queryString: string, urlParams: URLSearchPa
         </div>
     )
 }
+

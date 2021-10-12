@@ -95,7 +95,13 @@ export function register({ lang, queryString, urlParams, backendUrl, officialEma
       <br /><br /><br />
 
       <button key="registerButton" className="Lang-button"
-        onClick={() => registerCode({ lang, queryString, urlParams, backendUrl, officialEmail })}>
+        onClick={() => registerCode({
+          email: (document.getElementById("registerInput") as HTMLInputElement).value,
+          lang, 
+          queryString, 
+          urlParams, 
+          backendUrl, 
+          officialEmail })}>
         {l({
           "en": "Register",
           "fr": "S'inscrire"

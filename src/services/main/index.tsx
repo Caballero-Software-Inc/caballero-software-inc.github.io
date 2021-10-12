@@ -30,7 +30,7 @@ export function mainPage({ lang, queryString, urlParams, backendUrl, officialEma
         case "language":
             return language({ lang, queryString, urlParams });
         case "signIn":
-            return signIn(lang, queryString, urlParams);
+            return signIn({ lang, queryString, urlParams, backendUrl });
         case "register":
             return register({ lang, queryString, urlParams, backendUrl, officialEmail });
         default:

@@ -86,7 +86,7 @@ export function menuHead({ lang, queryString, urlParams, backendUrl, officialEma
                                             queryString, 
                                             urlParams, 
                                             param: 'page', 
-                                            newValue: 'delete'
+                                            newValue: 'del'
                                         }))
                                 }} key="buttonDelete">
                                     {l({
