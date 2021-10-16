@@ -1,4 +1,5 @@
 import { l } from "../../helpers/languageTools";
+import { changeParameter, newParameters } from "../../helpers/urlTools";
 import { getCredits } from "./getCredits";
 
 type Welcome = {
@@ -35,6 +36,26 @@ export function welcome({ lang, queryString, urlParams, backendUrl }: Welcome): 
         {l({
           "en": `Show Credits`,
           "fr": `Afficher les Crédits`
+        }, lang)}
+      </button>
+
+      <br />
+
+      <button className="Menu-button" key="publicEmail"
+        onClick={async () => {
+          newParameters(
+            changeParameter(
+              {
+                queryString,
+                urlParams,
+                param: 'page',
+                newValue: 'pEmail'
+              })
+          )
+        }}>
+        {l({
+          "en": `Public Email`,
+          "fr": `Courrier électronique public`
         }, lang)}
       </button>
 

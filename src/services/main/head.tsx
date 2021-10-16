@@ -8,10 +8,10 @@ type HeadMain = {
     urlParams: URLSearchParams;
     backendUrl: string;
     officialEmail: string;
-    signed: boolean;
+    unsigned: boolean;
 };
 
-export function mainHead({ lang, queryString, urlParams, backendUrl, officialEmail, signed }: HeadMain): JSX.Element {
+export function mainHead({ lang, queryString, urlParams, backendUrl, officialEmail, unsigned }: HeadMain): JSX.Element {
     return (
         <table style={{ width: `100%` }} key="headOfPages">
             <tbody>
@@ -114,7 +114,10 @@ export function mainHead({ lang, queryString, urlParams, backendUrl, officialEma
                                     }, lang)}
                                 </button>
 
-                                {signed ?
+                                {unsigned
+
+                                    ?
+
                                     (<button className="Cute-button" onClick={() => {
                                         newParameters(
                                             changeParameter(
@@ -131,7 +134,9 @@ export function mainHead({ lang, queryString, urlParams, backendUrl, officialEma
                                             "fr": "S'identifier"
                                         }
                                             , lang)}
-                                    </button>) :
+                                    </button>)
+
+                                    :
 
                                     (<button className="Cute-button" onClick={() => {
                                         const queryStringInner = changeParameter(
@@ -156,7 +161,9 @@ export function mainHead({ lang, queryString, urlParams, backendUrl, officialEma
                                             "en": "Account",
                                             "fr": "Compte"
                                         }, lang)}
-                                    </button>)}
+                                    </button>)
+
+                                    }
                             </div>
                         </div>
                     </td>
