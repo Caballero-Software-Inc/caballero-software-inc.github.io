@@ -33,7 +33,7 @@ export function selectService({ lang, queryString, urlParams, backendUrl, offici
             })
         case "email":
             return pageStructure({
-                head: mainHead({ lang, queryString, urlParams, backendUrl, officialEmail, unsigned }),
+                head: (<noscript></noscript>),
                 page: emailPage({ lang, queryString, urlParams, backendUrl, officialEmail, unsigned })
             })
         default:

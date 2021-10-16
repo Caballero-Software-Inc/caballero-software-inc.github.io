@@ -1,4 +1,3 @@
-import { changeParameter, newParameters } from "../../helpers/urlTools";
 import axios from 'axios';
 
 
@@ -8,7 +7,8 @@ type SignInCode = {
      lang: string
      queryString: string; 
      urlParams: URLSearchParams;
-     backendUrl: string
+     backendUrl: string;
+     postSignIn: any
 }
 
 interface Response {
@@ -16,27 +16,12 @@ interface Response {
     error?: string
   }
 
-export async function signInCode({ email, id, lang, queryString, urlParams, backendUrl }: SignInCode): Promise<void> {
+export async function signInCode({ email, id, lang, queryString, urlParams, backendUrl, postSignIn }: SignInCode): Promise<void> {
 
     const response = await axios.get<Response>(backendUrl + `account/signin?lang=${lang}&email=${email}&id=${id}`);
 
     if (response.data.ok) {
-        const queryStringInner = changeParameter({
-            queryString,
-            urlParams,
-            param: 'serv',
-            newValue: 'menu'
-        });
-        localStorage.setItem('email', email);
-        localStorage.setItem('id', id);
-    
-        newParameters(changeParameter({
-            queryString: queryStringInner,
-            urlParams,
-            param: 'page',
-            newValue: 'welcome'
-        }));
-
+        postSignIn();
     } else {
         alert(response.data.error)
     }

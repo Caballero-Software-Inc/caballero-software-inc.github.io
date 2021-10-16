@@ -1,4 +1,4 @@
-import { newParameters } from '../../helpers/urlTools';
+import { changeParameter, newParameters } from '../../helpers/urlTools';
 
 import { welcome } from './welcome';
 import { projects } from './projects';
@@ -32,7 +32,21 @@ export function mainPage({ lang, queryString, urlParams, backendUrl, officialEma
         case "signIn":
             return signIn({ lang, queryString, urlParams, backendUrl });
         case "register":
-            return register({ lang, queryString, urlParams, backendUrl, officialEmail });
+            const postRegistration =  () => {
+                const innerQueryString: string = changeParameter({
+                  queryString, 
+                  urlParams, 
+                  param: 'serv', 
+                  newValue: 'main'
+                });
+                newParameters(changeParameter({
+                  queryString: innerQueryString, 
+                  urlParams, 
+                  param: 'page', 
+                  newValue: 'signIn'
+                }))
+              };
+            return register({ lang, queryString, urlParams, backendUrl, officialEmail, postRegistration });
         default:
             newParameters(`?serv=main&page=welcome&lang=en`);
             return <noscript />

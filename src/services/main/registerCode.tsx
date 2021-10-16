@@ -1,5 +1,4 @@
 import { l } from "../../helpers/languageTools";
-import { changeParameter, newParameters } from "../../helpers/urlTools";
 import axios from 'axios';
 
 type RegisterCode = { 
@@ -8,7 +7,8 @@ type RegisterCode = {
     queryString: string; 
     urlParams: URLSearchParams; 
     backendUrl: string; 
-    officialEmail: string
+    officialEmail: string;
+    postRegistration: any;
 }
 
 interface Response {
@@ -16,20 +16,15 @@ interface Response {
   error?: string
 }
 
-export async function registerCode({ email, lang, queryString, urlParams, backendUrl, officialEmail }: RegisterCode): Promise<void> {
+export async function registerCode({ email, lang, queryString, urlParams, backendUrl, officialEmail, postRegistration }: RegisterCode): Promise<void> {
     const response = await axios.get<Response>(backendUrl + `account/preregister?email=${email}&lang=${lang}`);
     const ok = response.data.ok
     if (ok) {
       alert(l({
           "en": `You will receive an email containing your confirmation code. This email will be sent from: ${officialEmail}`,
-          "fr": `Vous recevrez un courrier électronique contenant votre code de confirmation. Cet courrier électronique sera envoyé à partir de : ${officialEmail}`
+          "fr": `Vous recevrez un courrier électronique contenant votre code de confirmation. Ce courrier électronique sera envoyé à partir de : ${officialEmail}`
       }, lang));
-      newParameters(changeParameter({
-        queryString, 
-        urlParams, 
-        param: 'page', 
-        newValue: 'signIn'
-      }))
+      postRegistration();
     } else {
       alert(response.data.error)
     }

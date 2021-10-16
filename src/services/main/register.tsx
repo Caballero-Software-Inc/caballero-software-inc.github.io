@@ -8,9 +8,10 @@ type Register = {
   urlParams: URLSearchParams;
   backendUrl: string;
   officialEmail: string;
+  postRegistration: any;
 }
 
-export function register({ lang, queryString, urlParams, backendUrl, officialEmail }: Register): JSX.Element {
+export function register({ lang, queryString, urlParams, backendUrl, officialEmail, postRegistration }: Register): JSX.Element {
   return (
     <div key="registerPage" className="Ordinary-text"
       style={{
@@ -101,7 +102,9 @@ export function register({ lang, queryString, urlParams, backendUrl, officialEma
           queryString, 
           urlParams, 
           backendUrl, 
-          officialEmail })}>
+          officialEmail,
+          postRegistration
+          })}>
         {l({
           "en": "Register",
           "fr": "S'inscrire"

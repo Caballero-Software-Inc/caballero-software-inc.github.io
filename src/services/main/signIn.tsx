@@ -62,7 +62,24 @@ export function signIn({ lang, queryString, urlParams, backendUrl }: SignIn): JS
                      lang,
                      queryString, 
                      urlParams,
-                     backendUrl
+                     backendUrl,
+                     postSignIn: () => {
+                        const queryStringInner = changeParameter({
+                            queryString,
+                            urlParams,
+                            param: 'serv',
+                            newValue: 'menu'
+                        });
+                        localStorage.setItem('email', (document.getElementById("signinInput1") as HTMLInputElement).value);
+                        localStorage.setItem('id', (document.getElementById("signinInput2") as HTMLInputElement).value);
+                    
+                        newParameters(changeParameter({
+                            queryString: queryStringInner,
+                            urlParams,
+                            param: 'page',
+                            newValue: 'welcome'
+                        }));
+                     }
                 })}>
                 {l({
                     "en": "Sign in",
