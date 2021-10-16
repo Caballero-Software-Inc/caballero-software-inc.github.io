@@ -5,7 +5,7 @@ import { newParameters } from './helpers/urlTools';
 
 function App() {
   const officialEmail = "caballerosoftwareinc@gmail.com";
-  const backendUrl = "https://caballero-backend.herokuapp.com/";
+  const backendUrl = "https://caballero-account.herokuapp.com/";
   //const backendUrl = "http://localhost:8080/";
 
   const queryString = window.location.search;
