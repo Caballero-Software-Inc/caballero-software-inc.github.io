@@ -7,8 +7,6 @@ import { team } from './team';
 import { language } from '../general/language';
 import { signIn } from './signIn';
 import { register } from './register';
-import { terms } from './terms';
-import { privacy } from './privacy';
 
 type IndexMain = {
     lang: string;
@@ -49,10 +47,6 @@ export function mainPage({ lang, queryString, urlParams, backendUrl, officialEma
                 }))
             };
             return register({ lang, queryString, urlParams, backendUrl, officialEmail, postRegistration });
-        case "terms":
-            return terms(lang)
-        case "privacy":
-            return privacy(lang)
         default:
             newParameters(`?serv=main&page=welcome&lang=en`);
             return <noscript />

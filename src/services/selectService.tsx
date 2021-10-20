@@ -6,6 +6,8 @@ import { mainHead } from './main/head';
 import { menuPage } from './menu/index';
 import { menuHead } from './menu/head';
 import { emailPage } from './email/emailPage';
+import { legalPage } from './legal/index';
+import { legalHead } from './legal/legalHead';
 
 
 type ServiceParams = {
@@ -36,9 +38,15 @@ export function selectService({ lang, queryString, urlParams, backendUrl, offici
                 head: (<noscript></noscript>),
                 page: emailPage({ lang, queryString, urlParams, backendUrl, officialEmail, unsigned })
             })
+        case "legal":
+            return pageStructure({
+                head: legalHead({ lang, queryString, urlParams }),
+                page: legalPage({ lang, urlParams })
+            })
         default:
             newParameters(`?serv=main&page=welcome&lang=en`);
             return <noscript />
     }
 }
+
 
