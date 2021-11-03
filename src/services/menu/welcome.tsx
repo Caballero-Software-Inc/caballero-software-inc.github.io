@@ -41,24 +41,6 @@ export function welcome({ lang, queryString, urlParams, backendUrl }: Welcome): 
 
       <br />
 
-      <button className="Menu-button" key="publicEmail"
-        onClick={async () => {
-          newParameters(
-            changeParameter(
-              {
-                queryString,
-                urlParams,
-                param: 'page',
-                newValue: 'pEmail'
-              })
-          )
-        }}>
-        {l({
-          "en": `Public Email`,
-          "fr": `Courrier électronique public`
-        }, lang)}
-      </button>
-
 
     </div>
   )

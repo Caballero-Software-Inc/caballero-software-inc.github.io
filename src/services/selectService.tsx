@@ -5,7 +5,6 @@ import { mainHead } from './main/head';
 
 import { menuPage } from './menu/index';
 import { menuHead } from './menu/head';
-import { emailPage } from './email/emailPage';
 import { legalPage } from './legal/index';
 import { legalHead } from './legal/legalHead';
 
@@ -32,11 +31,6 @@ export function selectService({ lang, queryString, urlParams, backendUrl, offici
             return pageStructure({
                 head: menuHead({ lang, queryString, urlParams, backendUrl, officialEmail }),
                 page: menuPage({ lang, queryString, urlParams, backendUrl, officialEmail })
-            })
-        case "email":
-            return pageStructure({
-                head: (<noscript></noscript>),
-                page: emailPage({ lang, queryString, urlParams, backendUrl, officialEmail, unsigned })
             })
         case "legal":
             return pageStructure({

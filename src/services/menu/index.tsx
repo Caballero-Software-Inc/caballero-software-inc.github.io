@@ -1,7 +1,6 @@
 import { newParameters } from '../../helpers/urlTools';
 import { language } from '../general/language';
 import { del } from './del';
-import { pEmail } from './pEmail';
 import { welcome } from './welcome';
 
 
@@ -22,10 +21,6 @@ export function menuPage({ lang, queryString, urlParams, backendUrl, officialEma
             return language({ lang, queryString, urlParams });
         case "del":
             return del({ lang, queryString, urlParams, backendUrl });
-        case "pEmail":
-            const email = localStorage.getItem('email')!;
-            const id = localStorage.getItem('id')!;
-            return pEmail({ email, id, lang, queryString, urlParams, backendUrl });
         default:
             newParameters(`?serv=main&page=welcome&lang=en`);
             return <noscript />
