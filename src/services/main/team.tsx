@@ -1,6 +1,13 @@
 import { l } from '../../helpers/languageTools';
+import { changeParameter, newParameters } from '../../helpers/urlTools';
 
-export function team(lang: string): JSX.Element {
+type Team = { 
+    lang: string; 
+    queryString: string; 
+    urlParams: URLSearchParams; 
+}
+
+export function team({ lang, queryString, urlParams }: Team): JSX.Element {
     return (
         <div key="teamPage" className="Ordinary-text">
             <h1>
@@ -10,13 +17,32 @@ export function team(lang: string): JSX.Element {
                 }, lang)}
             </h1>
 
-            <li>
-                José Manuel Rodríguez Caballero ({l(
+            
+            <button key="see1" className="Cute-button" 
+            onClick={() => {
+                const queryStringServ: string = changeParameter({
+                    queryString,
+                    urlParams,
+                    param: 'serv',
+                    newValue: 'people'
+                })
+                newParameters(changeParameter({
+                    queryString: queryStringServ,
+                    urlParams,
+                    param: 'page',
+                    newValue: 'JoseCaballero'
+                }))
+
+            }}>{l({
+                        "en": "See",
+                        "fr": "voir"
+                    }, lang)}</button> 
+            José Manuel Rodríguez Caballero ({l(
                     {
                         "en": "Director",
                         "fr": "Directeur"
-                    }, lang)})
-            </li>
+                    }, lang)}) 
+            
         </div>
     )
 }

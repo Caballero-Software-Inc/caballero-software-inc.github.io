@@ -24,7 +24,7 @@ export function mainPage({ lang, queryString, urlParams, backendUrl, officialEma
         case "projects":
             return projects(lang);
         case "team":
-            return team(lang);
+            return team({ lang, queryString, urlParams });
         case "contact":
             return contact(lang);
         case "language":

@@ -7,6 +7,8 @@ import { menuPage } from './menu/index';
 import { menuHead } from './menu/head';
 import { legalPage } from './legal/index';
 import { legalHead } from './legal/legalHead';
+import { peopleHead } from './people/head';
+import { peoplePage } from './people/index';
 
 
 type ServiceParams = {
@@ -37,10 +39,16 @@ export function selectService({ lang, queryString, urlParams, backendUrl, offici
                 head: legalHead({ lang, queryString, urlParams }),
                 page: legalPage({ lang, urlParams })
             })
+        case "people":
+            return pageStructure({
+                head: peopleHead({ lang, queryString, urlParams }),
+                page: peoplePage({ lang, urlParams })
+            })
         default:
             newParameters(`?serv=main&page=welcome&lang=en`);
             return <noscript />
     }
 }
+
 
 
