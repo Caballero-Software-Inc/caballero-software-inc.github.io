@@ -44,6 +44,20 @@ export function JoseCaballero({ lang }: PeoplePage): JSX.Element {
 
                 <a href="https://scholar.google.ca/citations?user=D8zDZ7IAAAAJ">Google Scholar</a>
 
+                <h2 key="competitions"> {l({
+                    "en": "Competitions",
+                    "fr": "Compétitions"
+                }, lang)} </h2>
+
+                <a href="https://www.kaggle.com/josemrcaballero/competitions?tab=active">Kaggle Competitions</a>
+
+                <br/><br/>
+
+                <a href="https://challenges.wolfram.com/leaderboard">Wolfram Challenges</a> <br/>
+                ({l({
+                    "en": "identifier", "fr": "identifiant"}, lang)} : JMRCaballero)
+
+
                 <h2 key="projects"> {l({
                     "en": "Projects",
                     "fr": "Projets"
