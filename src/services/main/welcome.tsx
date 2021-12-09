@@ -5,7 +5,6 @@ export function welcome(lang: string): JSX.Element {
         <div
             style={{
                 height: `600px`,
-                overflow: "scroll",
                 color: `yellow`,
             }} key="welcomePage">
 
