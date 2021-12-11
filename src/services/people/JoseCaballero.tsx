@@ -30,11 +30,16 @@ export function JoseCaballero({ lang }: PeoplePage): JSX.Element {
                     "fr": "Certificats Numériques"
                 }, lang)} </h2>
 
-                <a href="https://www.credly.com/badges/8df30bc9-9157-4362-bc13-1e1eaa001830/linked_in">Fundamentals of Scalable Data Science</a>
+                <a href="https://www.credly.com/badges/8df30bc9-9157-4362-bc13-1e1eaa001830">Fundamentals of Scalable Data Science</a>
 
                 <br></br> <br></br>
 
-                <a href="https://www.credly.com/earner/earned/badge/4e51b587-5d0c-4d05-82a1-c26d6de1f443">Advanced Machine Learning and Signal Processing</a>
+                <a href="https://www.credly.com/badges/4e51b587-5d0c-4d05-82a1-c26d6de1f443">Advanced Machine Learning and Signal Processing</a>
+
+                <br></br> <br></br>
+
+                <a href="https://www.credly.com/badges/07a3189b-54e8-47f5-aab0-6e2a9ecf8352">Applied AI with DeepLearning
+</a>
 
 
                 <h2 key="publications"> {l({
