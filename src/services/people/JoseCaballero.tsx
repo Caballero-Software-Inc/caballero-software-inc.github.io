@@ -70,13 +70,6 @@ export function JoseCaballero({ lang }: PeoplePage): JSX.Element {
 
                 <a href="https://caballero.software/">Startup: Caballero Software Inc</a>
 
-                <h2 key="miscellaneous"> {l({
-                    "en": "Miscellaneous",
-                    "fr": "divers"
-                }, lang)} </h2>
-
-                <a href="https://www.wolframphysics.org/people/jose-manuel-rodriguez-caballero/">Wolfram Physics Project</a>
-
                 <h2 key="contact"> {l({
                     "en": "To contact please write to: ",
                     "fr": "Pour contacter, s'il vous plaît écrivez à :"
