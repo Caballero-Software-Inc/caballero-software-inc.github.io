@@ -22,7 +22,7 @@ export function mainPage({ lang, queryString, urlParams, backendUrl, officialEma
         case "welcome":
             return welcome(lang)
         case "projects":
-            return projects(lang);
+            return projects({ lang, queryString, urlParams });
         case "team":
             return team({ lang, queryString, urlParams });
         case "contact":

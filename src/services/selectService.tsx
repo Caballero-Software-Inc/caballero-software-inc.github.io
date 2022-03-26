@@ -9,6 +9,8 @@ import { legalPage } from './legal/index';
 import { legalHead } from './legal/legalHead';
 import { peopleHead } from './people/head';
 import { peoplePage } from './people/index';
+import { projectsHead } from './projects/head';
+import { projectsPage } from './projects/index';
 
 
 type ServiceParams = {
@@ -43,6 +45,11 @@ export function selectService({ lang, queryString, urlParams, backendUrl, offici
             return pageStructure({
                 head: peopleHead({ lang, queryString, urlParams }),
                 page: peoplePage({ lang, urlParams })
+            })
+        case "projects":
+            return pageStructure({
+                head: projectsHead({ lang, queryString, urlParams }),
+                page: projectsPage({ lang, urlParams })
             })
         default:
             newParameters(`?serv=main&page=welcome&lang=en`);

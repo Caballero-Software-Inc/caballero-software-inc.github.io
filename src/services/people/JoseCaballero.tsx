@@ -38,8 +38,11 @@ export function JoseCaballero({ lang }: PeoplePage): JSX.Element {
 
                 <br></br> <br></br>
 
-                <a href="https://www.credly.com/badges/07a3189b-54e8-47f5-aab0-6e2a9ecf8352">Applied AI with DeepLearning
-</a>
+                <a href="https://www.credly.com/badges/07a3189b-54e8-47f5-aab0-6e2a9ecf8352">Applied AI with DeepLearning</a>
+
+                <br></br> <br></br>
+
+                <a href="https://www.credly.com/badges/286d455f-eba8-4296-afc2-27203ccd455c">Advanced Data Science Specialization</a>
 
 
                 <h2 key="publications"> {l({
