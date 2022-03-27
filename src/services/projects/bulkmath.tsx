@@ -50,8 +50,15 @@ export function bulkmath({ lang }: BulkmathPage): JSX.Element {
             
             {l({
                     "en": "Description of the Project: ",
-                    "fr": "Descriptif du projet : "
-                }, lang)} <a href="https://github.com/Caballero-Software-Inc/bulkmath/blob/main/description/description.pdf">description.pdf</a>
+                    "fr": "Descriptif du projet : "
+                }, lang)} <a href="https://github.com/Caballero-Software-Inc/bulkmath/blob/main/description/description.pdf">See description.pdf</a>
+
+            <br/><br/>
+            
+            {l({
+                    "en": "GitHub repository of the project: ",
+                    "fr": "Référentiel GitHub du projet : "
+                }, lang)} <a href="https://github.com/Caballero-Software-Inc/bulkmath">Go to GitHub</a>
 
 
             </div>
