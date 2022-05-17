@@ -114,56 +114,7 @@ export function mainHead({ lang, queryString, urlParams, backendUrl, officialEma
                                     }, lang)}
                                 </button>
 
-                                {unsigned
-
-                                    ?
-
-                                    (<button className="Cute-button" onClick={() => {
-                                        newParameters(
-                                            changeParameter(
-                                                {
-                                                    queryString,
-                                                    urlParams,
-                                                    param: 'page',
-                                                    newValue: 'signIn'
-                                                })
-                                        )
-                                    }} key="signinLanguage">
-                                        {l({
-                                            "en": "Sign in",
-                                            "fr": "S'identifier"
-                                        }
-                                            , lang)}
-                                    </button>)
-
-                                    :
-
-                                    (<button className="Cute-button" onClick={() => {
-                                        const queryStringInner = changeParameter(
-                                            {
-                                                queryString,
-                                                urlParams,
-                                                param: 'page',
-                                                newValue: 'welcome'
-                                            });
-
-                                        newParameters(
-                                            changeParameter(
-                                                {
-                                                    queryString: queryStringInner,
-                                                    urlParams,
-                                                    param: 'serv',
-                                                    newValue: 'menu'
-                                                })
-                                        )
-                                    }} key="accountLanguage">
-                                        {l({
-                                            "en": "Account",
-                                            "fr": "Compte"
-                                        }, lang)}
-                                    </button>)
-
-                                    }
+                                
                             </div>
                         </div>
                     </td>
